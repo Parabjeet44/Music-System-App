@@ -44,10 +44,6 @@
     <img src="Front-End/public/Screenshot(24).png" alt="Screenshot 7" width="600"/>
 </div>
 
-### Screenshot 8
-<div align="center">
-    <img src="Front-End/public/Screenshot(25).png" alt="Screenshot 8" width="600"/>
-</div>
 
 ## Overview
 
