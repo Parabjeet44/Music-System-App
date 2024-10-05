@@ -1,18 +1,53 @@
 # Music System App
 ## MeloTune
 
-![Logo](Front-End/public/MeloTune.png)
-<br>
-<br><!-- Add a logo if you have one -->
-![Screenshot1](Front-End/public/Screenshot(18).png) <!-- Replace with actual paths for screenshots -->
-![Screenshot2](/Front-End/public/Screenshot(19).png)
-![Screenshot3](Front-End/public/Screenshot(20).png)
-![Screenshot4](Front-End/public/Screenshot(21).png)
-![Screenshot5](Front-End/public/Screenshot(22).png)
-![Screenshot6](Front-End/public/Screenshot(23).png)
-![Screenshot7](Front-End/public/Screenshot(24).png)
-![Screenshot8](Front-End/public/Screenshot(25).png)
+<div align="center">
+    <img src="Front-End/public/MeloTune.png" alt="Logo" width="200"/>
+</div>
 
+<br>
+
+## Screenshots
+
+### Screenshot 1
+<div align="center">
+    <img src="Front-End/public/Screenshot(18).png" alt="Screenshot 1" width="600"/>
+</div>
+
+### Screenshot 2
+<div align="center">
+    <img src="Front-End/public/Screenshot(19).png" alt="Screenshot 2" width="600"/>
+</div>
+
+### Screenshot 3
+<div align="center">
+    <img src="Front-End/public/Screenshot(20).png" alt="Screenshot 3" width="600"/>
+</div>
+
+### Screenshot 4
+<div align="center">
+    <img src="Front-End/public/Screenshot(21).png" alt="Screenshot 4" width="600"/>
+</div>
+
+### Screenshot 5
+<div align="center">
+    <img src="Front-End/public/Screenshot(22).png" alt="Screenshot 5" width="600"/>
+</div>
+
+### Screenshot 6
+<div align="center">
+    <img src="Front-End/public/Screenshot(23).png" alt="Screenshot 6" width="600"/>
+</div>
+
+### Screenshot 7
+<div align="center">
+    <img src="Front-End/public/Screenshot(24).png" alt="Screenshot 7" width="600"/>
+</div>
+
+### Screenshot 8
+<div align="center">
+    <img src="Front-End/public/Screenshot(25).png" alt="Screenshot 8" width="600"/>
+</div>
 
 ## Overview
 
