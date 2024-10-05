@@ -1,7 +1,8 @@
 # Music System App
 
-![Logo](Front-End/public/MeloTune.png) <!-- Add a logo if you have one -->
-![Screenshot1](C:\Users\Lenovo\Pictures\Screenshots\Screenshot (3).png) <!-- Replace with actual paths for screenshots -->
+![Logo](Front-End/public/MeloTune.png)
+<br><!-- Add a logo if you have one -->
+![Screenshot1](Front-End/public/Screenshot (18).png) <!-- Replace with actual paths for screenshots -->
 ![Screenshot2](path/to/screenshot2.png)
 ![Screenshot3](path/to/screenshot3.png)
 
