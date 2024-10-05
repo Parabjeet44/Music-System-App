@@ -1,10 +1,11 @@
 # Music System App
+## MeloTune
 
 ![Logo](Front-End/public/MeloTune.png)
 <br><!-- Add a logo if you have one -->
 ![Screenshot1](Front-End/public/Screenshot(18).png) <!-- Replace with actual paths for screenshots -->
-![Screenshot2](path/to/screenshot2.png)
-![Screenshot3](path/to/screenshot3.png)
+![Screenshot2](/Front-End/public/Screenshot(19).png)
+![Screenshot3](Front-End\public\Screenshot(20).png)
 
 ## Overview
 
