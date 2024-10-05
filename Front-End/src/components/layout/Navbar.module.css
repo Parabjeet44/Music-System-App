@@ -1,0 +1,90 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Added horizontal padding */
+  width: 100%;
+  background-color: #111; /* Dark background for the navbar */
+  height: 3.5rem; /* Increased height for better alignment */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.backButton, .forwardButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 1.5rem; /* Adjusted font size for better visibility */
+  transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.backButton i, .forwardButton i {
+  color: #fff; /* White color for the icons */
+}
+
+.backButton:hover i, .forwardButton:hover i {
+  color: #1db954; /* Change icon color on hover */
+}
+
+.navBar {
+  display: flex;
+  gap: 20px;
+  align-items: center; /* Center items vertically */
+  position: relative; /* Relative positioning for absolute positioning of buttons */
+}
+
+.signUp button, .logIn button {
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px 15px; /* Added more padding for better click area */
+  font-size: 1rem; /* Adjusted font size for better readability */
+  border: 2px solid transparent; /* Border to show on hover */
+  border-radius: 20px; /* Rounded corners */
+  transition: all 0.3s; /* Smooth transition for all properties */
+}
+
+.signUp button {
+  color: #bbb; /* Light grey color for the sign-up button */
+  border-color: #444; /* Subtle border color */
+}
+
+.signUp button:hover {
+  color: #fff;
+  border-color: #1db954; /* Green border on hover */
+}
+
+.logIn button {
+  background-color: #1db954; /* Green background for the log-in button */
+  color: #fff; /* White text color */
+  border-radius: 20px; /* More rounded corners */
+  padding: 10px 20px; /* Adjusted padding for better fit */
+  margin-left: 0px; /* Add space between sign-up and log-in buttons */
+}
+
+.logIn button:hover {
+  background-color: #1ed760; /* Slightly lighter green on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+}
+
+.logIn button a, .signUp button a {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit button color */
+}
+
+@media (max-width: 768px) {
+  .nav {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+      height: auto; /* Allow height to adjust based on content */
+  }
+  
+  .navBar {
+      flex-direction: column; /* Stack buttons vertically */
+      gap: 10px; /* Reduced gap for vertical stack */
+  }
+
+ 
+}
+ .logIn button {
+      margin-right: 50px; /* Remove left margin for smaller screens */
+  }
