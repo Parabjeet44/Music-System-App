@@ -5,7 +5,13 @@
 <br><!-- Add a logo if you have one -->
 ![Screenshot1](Front-End/public/Screenshot(18).png) <!-- Replace with actual paths for screenshots -->
 ![Screenshot2](/Front-End/public/Screenshot(19).png)
-![Screenshot3](Front-End\public\Screenshot(20).png)
+![Screenshot3](Front-End/public/Screenshot(20).png)
+![Screenshot4](Front-End/public/Screenshot(21).png)
+![Screenshot5](Front-End/public/Screenshot(22).png)
+![Screenshot6](Front-End/public/Screenshot(23).png)
+![Screenshot7](Front-End/public/Screenshot(24).png)
+![Screenshot8](Front-End/public/Screenshot(25).png)
+
 
 ## Overview
 
