@@ -125,6 +125,7 @@ Make sure you have the following installed on your local machine:
    ```bash
    git add README.md
    git commit -m "Updated README with detailed instructions and formatting"
+   ```
 
    
 
