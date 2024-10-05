@@ -108,7 +108,25 @@ Make sure you have the following installed on your local machine:
 4. **Run the Server:**
    ```bash
    npm run dev
+   ```
+5. **Access the Application:**
+   Open your browser and go to http://localhost:3000 to view the application.
 
+
+### Changes Made:
+- Corrected minor formatting issues (missing backticks for code blocks).
+- Added instructions for accessing the application after running the server.
+- Made the installation steps clearer with proper indentation and formatting.
+- Ensured consistency in headings and subheadings.
+
+### Final Steps:
+1. **Update your README.md file** with the refined content above.
+2. **Commit your changes**:
+   ```bash
+   git add README.md
+   git commit -m "Updated README with detailed instructions and formatting"
+
+   
 
 
 
