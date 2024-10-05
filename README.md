@@ -2,6 +2,7 @@
 ## MeloTune
 
 ![Logo](Front-End/public/MeloTune.png)
+<br>
 <br><!-- Add a logo if you have one -->
 ![Screenshot1](Front-End/public/Screenshot(18).png) <!-- Replace with actual paths for screenshots -->
 ![Screenshot2](/Front-End/public/Screenshot(19).png)
@@ -60,3 +61,23 @@ Make sure you have the following installed on your local machine:
    ```bash
    git clone https://github.com/Parabjeet44/Music-System-App.git
    cd Music-System-App
+2. **Navigate to the project directory:**
+    ```bash
+    cd Music-System-App
+3. **Install dependencies:**
+   For Backend
+   ```bash
+   cd back-end
+   npm install
+   ```
+   For Front-End
+   ```bash
+   cd my-app
+   npm install
+4. **Run the Server:**
+   ```bash
+   npm run dev
+
+
+
+
