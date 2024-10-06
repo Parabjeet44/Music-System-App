@@ -1,10 +1,49 @@
 # Music System App
+## MeloTune
 
-![Logo](Front-End/public/MeloTune.png)
-<br><!-- Add a logo if you have one -->
-![Screenshot1](Front-End/public/Screenshot(18).png) <!-- Replace with actual paths for screenshots -->
-![Screenshot2](path/to/screenshot2.png)
-![Screenshot3](path/to/screenshot3.png)
+<div align="center">
+    <img src="Front-End/public/MeloTune.png" alt="Logo" width="200"/>
+</div>
+
+<br>
+
+## Screenshots
+
+### Screenshot 1
+<div align="center">
+    <img src="Front-End/public/Screenshot(18).png" alt="Screenshot 1" width="600"/>
+</div>
+
+### Screenshot 2
+<div align="center">
+    <img src="Front-End/public/Screenshot(19).png" alt="Screenshot 2" width="600"/>
+</div>
+
+### Screenshot 3
+<div align="center">
+    <img src="Front-End/public/Screenshot(20).png" alt="Screenshot 3" width="600"/>
+</div>
+
+### Screenshot 4
+<div align="center">
+    <img src="Front-End/public/Screenshot(21).png" alt="Screenshot 4" width="600"/>
+</div>
+
+### Screenshot 5
+<div align="center">
+    <img src="Front-End/public/Screenshot(22).png" alt="Screenshot 5" width="600"/>
+</div>
+
+### Screenshot 6
+<div align="center">
+    <img src="Front-End/public/Screenshot(23).png" alt="Screenshot 6" width="600"/>
+</div>
+
+### Screenshot 7
+<div align="center">
+    <img src="Front-End/public/Screenshot(24).png" alt="Screenshot 7" width="600"/>
+</div>
+
 
 ## Overview
 
@@ -53,3 +92,42 @@ Make sure you have the following installed on your local machine:
    ```bash
    git clone https://github.com/Parabjeet44/Music-System-App.git
    cd Music-System-App
+2. **Navigate to the project directory:**
+    ```bash
+    cd Music-System-App
+3. **Install dependencies:**
+   For Backend
+   ```bash
+   cd back-end
+   npm install
+   ```
+   For Front-End
+   ```bash
+   cd my-app
+   npm install
+4. **Run the Server:**
+   ```bash
+   npm run dev
+   ```
+5. **Access the Application:**
+   Open your browser and go to http://localhost:3000 to view the application.
+
+
+### Changes Made:
+- Corrected minor formatting issues (missing backticks for code blocks).
+- Added instructions for accessing the application after running the server.
+- Made the installation steps clearer with proper indentation and formatting.
+- Ensured consistency in headings and subheadings.
+
+### Final Steps:
+1. **Update your README.md file** with the refined content above.
+2. **Commit your changes**:
+   ```bash
+   git add README.md
+   git commit -m "Updated README with detailed instructions and formatting"
+   ```
+
+   
+
+
+
