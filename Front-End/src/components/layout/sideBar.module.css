@@ -86,7 +86,6 @@
 
 .authButton:hover {
     transform: scale(1.05);
-<<<<<<< HEAD:Front-End/src/components/layout/sideBar.module.css
 }
 
 .authButton a{
@@ -110,6 +109,4 @@
 
 .menuItem i{
     color: #fff;
-=======
->>>>>>> 8a9c3da (Revert "Day 4 Done linking of all th page of signUp logIn and home"):src/components/layout/sideBar.module.css
 }
