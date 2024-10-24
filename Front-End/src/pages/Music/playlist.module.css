@@ -1,0 +1,212 @@
+/* Container styling */
+.playlistContainer {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #1d1d1d;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* Playlist header */
+.playlistContainer h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #1db954; /* Spotify green */
+}
+
+/* Form styling for creating a new playlist */
+.createPlaylistForm {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px; /* Added gap between input and button */
+}
+
+.newPlaylistInput {
+  flex-grow: 1;
+  padding: 12px;
+  font-size: 1.1rem;
+  border: 1px solid #888;
+  border-radius: 8px;
+  background-color: #333;
+  color: #fff;
+}
+
+.createButton {
+  padding: 12px 25px;
+  background-color: #1db954;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.createButton:hover {
+  background-color: #17a846;
+}
+
+/* Filter and Sort container */
+.filterSortContainer {
+  margin: 20px 0;
+}
+
+.sortSelect {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Playlist list */
+.playlistList {
+  margin-bottom: 20px;
+}
+
+.playlistItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #282828;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.playlistItem:hover {
+  background-color: #333;
+}
+
+/* Style for Edit button */
+.editButton {
+  background-color: #4CAF50; /* Green background */
+  color: #fff; /* White text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 15px; /* More space between buttons */
+}
+
+.editButton:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Style for Remove button */
+.removeButton {
+  background-color: #f44336; /* Red background */
+  color: #fff; /* White text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.removeButton:hover {
+  background-color: #e53935; /* Darker red on hover */
+}
+
+/* Style for Preview button */
+.previewButton {
+  background-color: #2196F3; /* Blue background */
+  color: #fff; /* White text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 15px; /* More space between buttons */
+}
+
+.previewButton:disabled {
+  background-color: #b0bec5; /* Grey background when disabled */
+  cursor: not-allowed;
+}
+
+/* Additional styles for button containers */
+.buttonContainer {
+  display: flex;
+  gap: 15px; /* Increased space between buttons */
+}
+
+/* Selected playlist */
+.selectedPlaylist {
+  margin-top: 20px;
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.selectedPlaylist h3 {
+  font-size: 1.8rem;
+  color: #1db954;
+}
+
+/* Song list */
+.songList {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.songItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #333;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.songItem div {
+  display: flex;
+  flex-direction: column;
+}
+
+.songItem strong {
+  font-size: 1rem;
+}
+
+.songItem p {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.songItem .buttonContainer {
+  margin-top: 10px; /* Space between song info and buttons */
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .playlistContainer {
+    padding: 15px;
+  }
+
+  .newPlaylistInput, .createButton {
+    font-size: 0.9rem;
+  }
+
+  .songItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+ 
+.editButton{
+  margin-left: 15px;
+}

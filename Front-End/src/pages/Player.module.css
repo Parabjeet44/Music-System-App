@@ -1,0 +1,113 @@
+/* Full-screen background to center the player */
+.playerWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212; /* Dark background like Spotify */
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Player container with padding and box shadow */
+  .playerContainer {
+    background-color: #1db954;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: white;
+  }
+  
+  /* Track name styling */
+  .trackName {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: white;
+  }
+  
+  /* Custom play/pause button */
+  .playButton {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    font-size: 30px;
+    color: #1db954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .playButton:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Seek bar styling */
+  .seekBar {
+    width: 80%;
+    margin: 20px 0;
+    appearance: none;
+    background: #fff;
+    height: 6px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .seekBar::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: #1db954;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .seekBar::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background-color: #1db954;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .seekBar::-ms-thumb {
+    width: 16px;
+    height: 16px;
+    background-color: #1db954;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  /* Fix for hiding the thumb on Webkit */
+  .seekBar::-webkit-slider-runnable-track {
+    background-color: #ffffff;
+    border-radius: 5px;
+  }
+  
+  /* Time display */
+  .time {
+    color: white;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  /* More space for better alignment */
+  .playerControls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .likeButton{
+    background-color: transparent;
+    border: none;
+  }
+  

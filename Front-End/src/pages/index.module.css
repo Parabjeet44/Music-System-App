@@ -1,0 +1,60 @@
+.div h1 {
+    color: whitesmoke;
+  }
+  
+  .poparts {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto a new line if they exceed available width */
+  }
+  
+  .popart1, .popalb1 {
+    width: 200px; /* Set a fixed width for artist/album cards */
+    text-align: center;
+  }
+  
+  .popart1 h2, .popalb1 h2 {
+    color: whitesmoke;
+    font-size: 1.2rem;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflowing text */
+    text-overflow: ellipsis; /* Adds '...' to indicate hidden overflow */
+  }
+  
+  .popart1 p, .popalb1 p {
+    color: whitesmoke;
+  }
+  
+  .imag, .img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures the image is contained properly */
+  }
+
+  .img{
+    border-radius: 0%;
+  }
+  
+  .popalb {
+    display: flex;
+    flex-wrap: wrap; /* Allows album items to wrap if needed */
+  }
+  
+  .popalb1 {
+    width: 200px; /* Set a fixed width for each album card */
+    text-align: center;
+  }
+  
+  .popalb1 h2 {
+    color: whitesmoke;
+    font-size: medium;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+.popalb1 button,.popart1 button{
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
