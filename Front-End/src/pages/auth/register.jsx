@@ -60,11 +60,10 @@ const Register = () => {
                 />
                 {error && <p className={styles.error}>{error}</p>}
                 <button type="submit" className={styles.submit}>Sign Up</button>
-<<<<<<< HEAD:Front-End/src/pages/auth/register.jsx
+
                 <p>Already have an account? <Link href="/auth/login">Log In</Link></p>
 =======
                 <p>Already have an account? <Link href="/login">Log In</Link></p>
->>>>>>> 8a9c3da (Revert "Day 4 Done linking of all th page of signUp logIn and home"):src/pages/auth/register.jsx
             </form>
         </div>
     );
