@@ -62,8 +62,6 @@ const Register = () => {
                 <button type="submit" className={styles.submit}>Sign Up</button>
 
                 <p>Already have an account? <Link href="/auth/login">Log In</Link></p>
-=======
-                <p>Already have an account? <Link href="/login">Log In</Link></p>
             </form>
         </div>
     );
