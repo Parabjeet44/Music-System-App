@@ -1,4 +1,3 @@
-// models/Playlist.js
 const mongoose = require('mongoose');
 
 const PlaylistSchema = new mongoose.Schema({
@@ -10,9 +9,10 @@ const PlaylistSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    required: false
   },
   songs: [{
+    _id: mongoose.Schema.Types.ObjectId,  // Add _id to each song
     name: String,
     artist: String,
     previewUrl: String,

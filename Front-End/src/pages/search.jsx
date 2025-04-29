@@ -12,7 +12,6 @@ const Search = () => {
   const [accessToken, setAccessToken] = useState('');
   const [playlists, setPlaylists] = useState([]);
   const [likedSongs, setLikedSongs] = useState([]);
-
   const router = useRouter();
 
   useEffect(() => {
@@ -29,11 +28,12 @@ const Search = () => {
 
     fetchAccessToken();
 
-    const loadPlaylists = () => {
+    const loadPlaylists = async () => {
       try {
-        const storedPlaylists = JSON.parse(localStorage.getItem('playlists') || '[]');
-        setPlaylists(storedPlaylists);
+        const response = await axios.get('http://localhost:5000/api/playlist');
+        setPlaylists(response.data);
       } catch (error) {
+        console.error('Error loading playlists:', error);
         setPlaylists([]);
       }
     };
@@ -49,13 +49,6 @@ const Search = () => {
 
     loadPlaylists();
     loadLikedSongs();
-    window.addEventListener('storage', loadPlaylists);
-    window.addEventListener('storage', loadLikedSongs);
-
-    return () => {
-      window.removeEventListener('storage', loadPlaylists);
-      window.removeEventListener('storage', loadLikedSongs);
-    };
   }, []);
 
   const handleSearch = async (e) => {
@@ -100,45 +93,56 @@ const Search = () => {
   const addToPlaylist = async (track, playlistName) => {
     const playlist = playlists.find(p => p.name === playlistName);
     if (!playlist) return;
+
     const songExists = playlist.songs.some(song => song.id === track.id);
     if (songExists) return;
 
-    const updatedPlaylists = playlists.map(p => {
-      if (p.name === playlistName) {
-        return { ...p, songs: [...p.songs, track] };
-      }
-      return p;
-    });
-    setPlaylists(updatedPlaylists);
-    localStorage.setItem('playlists', JSON.stringify(updatedPlaylists));
-
-    if (!playlist._id) return;
-
     try {
-      await axios.patch(`http://localhost:5000/api/playlists/addSong/${playlist._id}`, { song: track });
+      // Send the song data and playlist ID to the backend to add the song to the playlist
+      const response = await axios.patch(`http://localhost:5000/api/playlist/addSong/${playlist._id}`, { song: track });
+
+      if (response.status === 200) {
+        // Update playlists in the local state (client-side)
+        const updatedPlaylists = playlists.map(p => {
+          if (p._id === playlist._id) {
+            return { ...p, songs: [...p.songs, track] };
+          }
+          return p;
+        });
+        setPlaylists(updatedPlaylists);
+      } else {
+        console.error('Failed to add song:', response.data.message);
+        setError(response.data.message || 'Failed to add song.');
+      }
     } catch (error) {
-      console.error('Error updating playlist in the database:', error);
+      console.error('Error adding song to playlist:', error);
+      setError('Failed to add song to playlist.');
     }
   };
 
   const handleCreatePlaylist = async (e) => {
     e.preventDefault();
     const newPlaylistName = prompt('Enter the name of the new playlist:');
+    const userId = localStorage.getItem('userId'); // Retrieve userId from localStorage
+
+    if (!userId) {
+      setError('User is not authenticated. Please log in.');
+      return;
+    }
+
     if (newPlaylistName) {
-      const storedPlaylists = JSON.parse(localStorage.getItem('playlists') || '[]');
-      if (!storedPlaylists.some(p => p.name === newPlaylistName)) {
-        const newPlaylist = { name: newPlaylistName, songs: [] };
-        try {
-          const response = await axios.post('http://localhost:5000/api/playlists', { name: newPlaylistName, userId: 'testUserId' }); // Replace 'testUserId' with actual user ID
-          newPlaylist._id = response.data._id;
-          const updatedPlaylists = [...storedPlaylists, newPlaylist];
-          localStorage.setItem('playlists', JSON.stringify(updatedPlaylists));
-          setPlaylists(updatedPlaylists);
-        } catch (error) {
-          console.error('Error creating playlist:', error);
-        }
-      } else {
-        alert('Playlist already exists.');
+      try {
+        const response = await axios.post('http://localhost:5000/api/playlist', { 
+          name: newPlaylistName, 
+          userId: userId  // Use the userId from localStorage
+        });
+        const newPlaylist = response.data;
+
+        // Update playlists with the new playlist
+        setPlaylists([...playlists, newPlaylist]);
+      } catch (error) {
+        console.error('Error creating playlist:', error);
+        setError('Failed to create playlist.');
       }
     }
   };
@@ -216,6 +220,10 @@ const Search = () => {
           ))}
         </ul>
       )}
+      
+      <button onClick={handleCreatePlaylist} className={styles.createPlaylistButton}>
+        Create New Playlist
+      </button>
     </div>
   );
 };
