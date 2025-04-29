@@ -12,7 +12,7 @@ const PlaylistSchema = new mongoose.Schema({
     required: false
   },
   songs: [{
-    _id: mongoose.Schema.Types.ObjectId,  // Add _id to each song
+    _id: mongoose.Schema.Types.ObjectId, // Add _id to each song
     name: String,
     artist: String,
     previewUrl: String,

@@ -12,24 +12,20 @@ const Playlist = () => {
   const [sortOption, setSortOption] = useState("name");
   const router = useRouter();
 
-  // Fetch playlists from the backend (Express API)
-  const loadPlaylists = async () => {
+  // Load playlists from localStorage
+  const loadPlaylists = () => {
     try {
-      const response = await fetch("http://localhost:5000/api/playlist");
-      if (!response.ok) {
-        throw new Error("Failed to fetch playlist");
-      }
-      const data = await response.json();
-      setPlaylists(data); // Set the playlists state
+      const storedPlaylists = JSON.parse(localStorage.getItem('playlists') || '[]');
+      setPlaylists(storedPlaylists);
     } catch (error) {
-      console.error("Error loading playlist:", error);
+      console.error('Error loading playlists:', error);
       setPlaylists([]);
     }
   };
 
   useEffect(() => {
     loadPlaylists();
-  }, []); // Empty array means this will run once when the component mounts
+  }, []);
 
   useEffect(() => {
     const sortedPlaylists = [...playlists].sort((a, b) => {
@@ -47,120 +43,57 @@ const Playlist = () => {
     }
   }, [sortOption]);
 
-  const createPlaylist = async (e) => {
+  // Create a new playlist
+  const createPlaylist = (e) => {
     e.preventDefault();
     if (!newPlaylistName.trim()) return;
 
-    const newPlaylist = {
-      name: newPlaylistName,
+    const newPlaylist = { 
+      _id: Date.now().toString(), // Generate a unique ID
+      name: newPlaylistName, 
       songs: [],
-      creationDate: new Date().toISOString(),
+      creationDate: new Date().toISOString() // Set the current date and time
     };
+    const updatedPlaylists = [...playlists, newPlaylist];
+    setPlaylists(updatedPlaylists);
+    localStorage.setItem('playlists', JSON.stringify(updatedPlaylists));
+    setNewPlaylistName('');
+  };
 
-    try {
-      const response = await fetch("http://localhost:5000/api/playlist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newPlaylist),
-      });
-
-      if (response.ok) {
-        loadPlaylists(); // Reload the playlists after adding a new one
-        setNewPlaylistName("");
-      } else {
-        throw new Error("Failed to create playlist");
-      }
-    } catch (error) {
-      console.error("Error creating playlist:", error);
+  // Remove a playlist
+  const removePlaylist = (playlistId) => {
+    const updatedPlaylists = playlists.filter(p => p._id !== playlistId);
+    setPlaylists(updatedPlaylists);
+    localStorage.setItem('playlists', JSON.stringify(updatedPlaylists));
+    if (selectedPlaylist && selectedPlaylist._id === playlistId) {
+      setSelectedPlaylist(null);
     }
   };
 
-  const removePlaylist = async (playlistId) => {
-    try {
-      const response = await fetch(
-        `http://localhost:5000/api/playlist/${playlistId}`,
-        {
-          method: "DELETE",
-        }
-      );
-
-      if (response.ok) {
-        loadPlaylists(); // Reload the playlists after deleting
-        if (selectedPlaylist && selectedPlaylist._id === playlistId) {
-          setSelectedPlaylist(null);
-        }
-      } else {
-        throw new Error("Failed to remove playlist");
-      }
-    } catch (error) {
-      console.error("Error removing playlist:", error);
-    }
-  };
-
+  // Start editing playlist
   const startEditingPlaylist = (playlist) => {
     setEditingPlaylist(playlist);
     setEditPlaylistName(playlist.name);
   };
 
-  const savePlaylistName = async () => {
+  // Save edited playlist name
+  const savePlaylistName = () => {
     if (!editingPlaylist || !editPlaylistName.trim()) return;
 
-    const updatedPlaylist = { ...editingPlaylist, name: editPlaylistName };
-
-    try {
-      const response = await fetch(
-        `/api/playlists/updateName/${editingPlaylist._id}`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name: editPlaylistName }),
-        }
-      );
-
-      if (response.ok) {
-        loadPlaylists(); // Reload the playlists after editing
-        setEditingPlaylist(null);
-        setEditPlaylistName("");
-      } else {
-        throw new Error("Failed to update playlist name");
-      }
-    } catch (error) {
-      console.error("Error updating playlist name:", error);
-    }
+    const updatedPlaylists = playlists.map(p =>
+      p._id === editingPlaylist._id ? { ...p, name: editPlaylistName } : p
+    );
+    setPlaylists(updatedPlaylists);
+    localStorage.setItem('playlists', JSON.stringify(updatedPlaylists));
+    setEditingPlaylist(null);
+    setEditPlaylistName("");
   };
 
-  const removeSong = async (playlistId, songId) => {
-    try {
-      const response = await fetch(
-        `http://localhost:5000/api/playlist/removeSong/${playlistId}`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ songId }),  // Ensure the songId is passed as spotifyId
-        }
-      );
-  
-      if (response.ok) {
-        const updatedPlaylist = await response.json();
-        setSelectedPlaylist(updatedPlaylist);  // Update the UI with the new playlist data
-      } else {
-        throw new Error("Failed to remove song from playlist");
-      }
-    } catch (error) {
-      console.error("Error removing song from playlist:", error);
-    }
-  };
-  
+  // Play preview of a track
   const playPreview = (track) => {
     router.push({
-      pathname: "/player",
-      query: { track: JSON.stringify(track) },
+      pathname: '/player',
+      query: { track: JSON.stringify(track) }
     });
   };
 
@@ -182,7 +115,7 @@ const Playlist = () => {
       </form>
 
       <div className={styles.filterSortContainer}>
-        <select
+        <select 
           value={sortOption}
           onChange={(e) => setSortOption(e.target.value)}
           className={styles.sortSelect}
@@ -203,25 +136,24 @@ const Playlist = () => {
                   onChange={(e) => setEditPlaylistName(e.target.value)}
                   className={styles.editPlaylistInput}
                 />
-                <button
-                  onClick={savePlaylistName}
-                  className={styles.saveButton}
-                >
+                <button onClick={savePlaylistName} className={styles.saveButton}>
                   Save
                 </button>
-                <button
-                  onClick={() => setEditingPlaylist(null)}
-                  className={styles.cancelButton}
-                >
+                <button onClick={() => setEditingPlaylist(null)} className={styles.cancelButton}>
                   Cancel
                 </button>
               </div>
             ) : (
               <div>
                 <span onClick={() => setSelectedPlaylist(playlist)}>
-                  {playlist.name} ({playlist.songs ? playlist.songs.length : 0}{" "}
-                  songs)
+                  {playlist.name} ({playlist.songs ? playlist.songs.length : 0} songs)
                 </span>
+                <button
+                  onClick={() => startEditingPlaylist(playlist)}
+                  className={styles.editButton}
+                >
+                  Edit
+                </button>
                 <button
                   onClick={() => removePlaylist(playlist._id)}
                   className={styles.removeButton}
@@ -242,12 +174,9 @@ const Playlist = () => {
           ) : (
             <ul className={styles.songList}>
               {selectedPlaylist.songs.map((track) => (
-                <li key={track.spotifyId} className={styles.songItem}>
+                <li key={track.id} className={styles.songItem}>
                   <div>
-                    <strong>{track.name}</strong> by{" "}
-                    {Array.isArray(track.artists) && track.artists.length > 0
-                      ? track.artists.map((artist) => artist.name).join(", ")
-                      : "Unknown Artist"}
+                    <strong>{track.name}</strong> by {track.artists.map(artist => artist.name).join(', ')}
                   </div>
                   <div>
                     <button
@@ -258,7 +187,7 @@ const Playlist = () => {
                       {track.preview_url ? "Play Preview" : "No Preview"}
                     </button>
                     <button
-                      onClick={() => removeSong(selectedPlaylist._id, track.spotifyId)}
+                      onClick={() => removeSong(selectedPlaylist._id, track.id)}
                       className={styles.removeButton}
                     >
                       Remove
