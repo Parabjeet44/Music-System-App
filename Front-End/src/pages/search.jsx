@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './search.module.css';
 import { useRouter } from 'next/router';
-import withAuth from '../lib/withAuth';
+
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -226,4 +226,4 @@ const Search = () => {
   );
 };
 
-export default withAuth(Search);
+export default Search;

@@ -203,4 +203,4 @@ const Playlist = () => {
   );
 };
 
-export default withAuth(Playlist);
+export default Playlist;

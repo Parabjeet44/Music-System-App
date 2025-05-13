@@ -106,4 +106,4 @@ const LikedSongs = () => {
   );
 };
 
-export default withAuth(LikedSongs);
+export default LikedSongs;
